@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div id="nav">
+        <h1>Weather App</h1>
+    </div>
+    <form onsubmit="getWeatherData(); return false" id="first">
+        <div>
+            <input type="text" id="city" placeholder="Enter City Name">
+        </div>
+    </form>
+    <div id="second">
+        <h1 id="temp"> </h1>
+        <img src="" alt="" id="image" width="100px">
+    </div>
+    <div id="third">
+        <div id ="thirdone">
+            <p id="cityname"></p>
+            <p id="countryname"></p>
+        </div>
+        <p id="cond"></p>
+    </div>
+    <div id="forth">
+        <aside>
+            <p id="min"></p>
+            <p id="max"></p>
+            <p id="prec"></p>
+        </aside>
+        <aside>
+            <p id="humi"></p>
+            <p id="wind"></p>
+            <p id="visi"></p>
+        </aside>
+    </div>
+
+</body>
+
+</html>
