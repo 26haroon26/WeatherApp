@@ -1,4 +1,3 @@
-chrome_options.add_argument('--log-level=1')
 function getWeatherData() {
     let city = document.querySelector('#city').value;
     let temp = document.getElementById('temp');
@@ -33,7 +32,7 @@ function getWeatherData() {
             const precepetaion = response.data.forecast.forecastday[0].day.totalprecip_mm;
             const text = response.data.current.condition.text;
             const icon = response.data.forecast.forecastday[0].day.condition.icon;
-            image.src = `https:${icon}`;
+            image.src = `${icon}`;
             // image.src = icon;
             
             cityname.innerHTML = name ;
