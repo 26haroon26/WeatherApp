@@ -1,4 +1,3 @@
-permissions-policy: interest-cohort=();
 function getWeatherData() {
     let city = document.querySelector('#city').value;
     let temp = document.getElementById('temp');
