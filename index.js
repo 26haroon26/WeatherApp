@@ -1,3 +1,4 @@
+chrome_options.add_argument('--log-level=1')
 function getWeatherData() {
     let city = document.querySelector('#city').value;
     let temp = document.getElementById('temp');
