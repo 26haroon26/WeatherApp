@@ -14,7 +14,7 @@ function getWeatherData() {
     let regionname = document.getElementById('regionname');
 
 
-    axios.get('http://api.weatherapi.com/v1/forecast.json?key=d334715e82a4490c903112428220107&q=' + city)
+    axios.get('https://api.weatherapi.com/v1/forecast.json?key=d334715e82a4490c903112428220107&q=' + city)
         .then(function (response) {
 
             const max_temp_c = response.data.forecast.forecastday[0].day.maxtemp_c;
@@ -48,6 +48,4 @@ function getWeatherData() {
             console.log(response.data);
         })
 }
-// let icon = data.current.condition.icon;
-// key
-//    <!-- d334715e82a4490c903112428220107 -->
+
