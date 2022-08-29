@@ -1,34 +1,152 @@
-body{
+body {
     padding: 0px;
     margin: 0px;
     text-align: center;
-}
-#nav{
-    
-    margin-top: -22px;
-    background-color: black;
-    color :white;
-    height: 10%;
-}#first,#second,#third,#forth{
-    width: 50%;
-    margin-left: 25%;
-}#first{
-    display: flex;
-    justify-content: center;
+    background-image: url('https://images.pexels.com/photos/1642770/pexels-photo-1642770.jpeg?cs=srgb&dl=dark-dawn-desktop-backgrounds-1642770.jpg&fm=jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: sans-serif;
+    color: white;
+
 }
 
-#city{
+#nav {
+
+    margin-top: -22px;
+    height: 10%;
+}
+#main{
+    width: 90%;
+    margin: auto;
+}
+
+
+#city {
     text-align: center;
     height: 8vh;
-    border: 1px solid black;
+    border: 1px solid white;
     width: 40vh;
     border-radius: 10px;
-}#third,#forth,#second{
+    background: transparent;
+    color: white;
+    font-size: large;
+}
+.section{
+    margin-top: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+}
 
-}#thirdone{
+.cityCountryInDiv1{
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.newELemDiv1,.newELemDiv2{
+    width: 25%;
+}.newELemDiv2>img{
+    height: 100px;
+    margin-left: -12px;
+    width: 100px;
+}
+.weatherNameInDiv1{
+    margin-top: 0px;
+}
+
+
+.forHour {
+    background-color: transparent;
+    height: 24vh;
+    width: 80px;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 10px;
+
+}
+
+#slider {
+    margin-top: 10px;
+    display: flex;
+    width: 95%;
+    margin: auto;
+    gap: 20px;
+    padding: 5px;
+    height: 40vh;
+    overflow-x: scroll;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.h2Slider {
+    font-size: medium;
+    margin: 0;
+    padding: 0;
+}
+
+.h3Slider {
+    font-size: medium;
+    margin: 0;
+    padding: 0;
+}
+
+.imgSlider {
+    margin: 0;
+    padding: 0;
+}
+
+.pSlider {
+    font-size: small;
+    margin: 0;
+    padding: 0;
+}
+#list{
+    margin-top: 10px;
+    margin: auto;
+    padding: 0;
+    width: 95%;
+}
+.ForDays {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.ForDaysDiv1 {
+    font-size: large;
+    width: 25%;
+
+}
+
+.ForDaysDiv2 {
+    width: 25%;
+}
+.imgInDiv2{
+    height: 90px;
+    width: 90px;
+}
+.ForDays{
+    margin-bottom: 10px;
+}
+.ForDaysDiv3 {
+    font-size: large;
+    width: 35%;
+}.dateInDiv3{
+    font-size: medium;
+}
+@media only screen and (max-width:800px){
+    .forHour{
+        height: 28vh;
+    }   
 }
