@@ -16,7 +16,8 @@ body {
     margin-top: -22px;
     height: 10%;
 }
-#main{
+
+#main {
     width: 90%;
     margin: auto;
 }
@@ -32,40 +33,59 @@ body {
     color: white;
     font-size: large;
 }
-.section{
+
+.section {
     margin-top: 10px;
-    border: 1px solid white;
     border-radius: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    /*  */
+    background: rgba( 251, 245, 245, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 16px );
+    -webkit-backdrop-filter: blur( 16px );
+    border-radius: 10px;
+    border: 1px solid rgb(253, 253, 253);
+
 }
 
-.cityCountryInDiv1{
+.cityCountryInDiv1 {
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
-.newELemDiv1,.newELemDiv2{
+
+.newELemDiv1,
+.newELemDiv2 {
     width: 25%;
-}.newELemDiv2>img{
+}
+
+.newELemDiv2>img {
     height: 100px;
     margin-left: -12px;
     width: 100px;
 }
-.weatherNameInDiv1{
+
+.weatherNameInDiv1 {
     margin-top: 0px;
 }
 
 
 .forHour {
-    background-color: transparent;
     height: 24vh;
     width: 80px;
     padding: 15px;
-    border: 1px solid white;
     border-radius: 10px;
+    /*  */
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(70px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: 10px;
+    border: 1px solid white;
+    text-shadow: 0px 0px 20px purple;
 
 }
 
@@ -83,9 +103,11 @@ body {
     background-color: transparent;
 
 }
+
 ::-webkit-scrollbar {
     display: none;
 }
+
 .h2Slider {
     font-size: medium;
     margin: 0;
@@ -108,19 +130,28 @@ body {
     margin: 0;
     padding: 0;
 }
-#list{
+
+#list {
     margin-top: 10px;
     margin: auto;
     padding: 0;
     width: 95%;
 }
+
 .ForDays {
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: transparent;
-    border: 1px solid white;
     border-radius: 10px;
+    /*  */
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(70px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: 10px;
+    border: 1px solid white;
+    text-shadow: 0px 0px 20px purple;
 }
 
 .ForDaysDiv1 {
@@ -132,21 +163,27 @@ body {
 .ForDaysDiv2 {
     width: 25%;
 }
-.imgInDiv2{
+
+.imgInDiv2 {
     height: 90px;
     width: 90px;
 }
-.ForDays{
+
+.ForDays {
     margin-bottom: 10px;
 }
+
 .ForDaysDiv3 {
     font-size: large;
     width: 35%;
-}.dateInDiv3{
+}
+
+.dateInDiv3 {
     font-size: medium;
 }
-@media only screen and (max-width:800px){
-    .forHour{
+
+@media only screen and (max-width:800px) {
+    .forHour {
         height: 28vh;
-    }   
+    }
 }
