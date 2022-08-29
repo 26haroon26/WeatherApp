@@ -1,51 +1,184 @@
+let nextdays;
 function getWeatherData() {
-    let city = document.querySelector('#city').value;
-    let temp = document.getElementById('temp');
-    let cond = document.getElementById('cond');
-    let min = document.getElementById('min');
-    let max = document.getElementById('max');
-    let prec = document.getElementById('prec');
-    let humi = document.getElementById('humi');
-    let wind = document.getElementById('wind');
-    let visi = document.getElementById('visi');
-    let image = document.getElementById('image');
-    let cityname = document.getElementById('cityname');
-    let countryname = document.getElementById('countryname');
-    let regionname = document.getElementById('regionname');
-
-
-    axios.get('https://api.weatherapi.com/v1/forecast.json?key=d334715e82a4490c903112428220107&q=' + city)
-        .then(function (response) {
-
-            const max_temp_c = response.data.forecast.forecastday[0].day.maxtemp_c;
-            const max_temp_f = response.data.forecast.forecastday[0].day.maxtemp_f;
-            const min_temp_c = response.data.forecast.forecastday[0].day.mintemp_c;
-            const min_temp_f = response.data.forecast.forecastday[0].day.mintemp_f;
-
-            const name = response.data.location.name;
-            const country = response.data.location.country;
-            const humidity = response.data.current.humidity;
-            const temp_c = response.data.current.temp_c;
-            const temp_f = response.data.current.temp_f;
-            const vis_km = response.data.current.vis_km;
-            const wind_kph = response.data.current.wind_kph;
-            const precepetaion = response.data.forecast.forecastday[0].day.totalprecip_mm;
-            const text = response.data.current.condition.text;
-            const icon = response.data.forecast.forecastday[0].day.condition.icon;
-            image.src = `${icon}`;
-            // image.src = icon;
-            
-            cityname.innerHTML = name ;
-            countryname.innerHTML = country ;
-            cond.innerHTML = text;
-            temp.innerHTML = temp_c + '&deg;C' + " <br>" + temp_f + '&deg;F';
-            humi.innerHTML = "Humidity : " + humidity + "%";
-            wind.innerHTML = "Wind : " + wind_kph + "km/h";
-            visi.innerHTML = "Visibility : " + vis_km + "km";
-            prec.innerHTML = "Precepitation : " + precepetaion + "mm";
-            max.innerHTML = "Max Temp : " + max_temp_c + "&deg;C" + " " + max_temp_f + "&deg;F";
-            min.innerHTML = "Min Temp : " + min_temp_c + "&deg;C" + " " + min_temp_f + "&deg;F";
+  let city = document.querySelector('#city');
+  axios.get(`https://api.weatherapi.com/v1/forecast.json?key=d334715e82a4490c903112428220107&q=${city.value}&days=14`)
+  .then(function (response) {
+            city.value = "";
             console.log(response.data);
-        })
-}
+            let mainDiv = window.document.childNodes[1].childNodes[2].childNodes[1];
 
+            let newELem = document.createElement('section')
+            newELem.setAttribute('class', 'section')
+
+            let newELemDiv1 = document.createElement('div')
+            newELemDiv1.setAttribute('class', 'newELemDiv1')
+            let newELemDiv2 = document.createElement('div')
+            newELemDiv2.setAttribute('class', 'newELemDiv2')
+
+            let temp_cInDiv1 = document.createElement('h3')
+            temp_cInDiv1.setAttribute('class', 'temp_cInDiv1')
+            let texttemp_cInDiv1 = document.createTextNode(`${response.data.current.temp_c}C`)
+            temp_cInDiv1.appendChild(texttemp_cInDiv1)
+            let temp_fInDiv1 = document.createElement('h3')
+            temp_fInDiv1.setAttribute('class', 'temp_fInDiv1')
+            let texttemp_fInDiv1 = document.createTextNode(`${response.data.current.temp_f}F`)
+            temp_fInDiv1.appendChild(texttemp_fInDiv1)
+            let cityInDiv1 = document.createElement('p')
+            cityInDiv1.setAttribute('class', 'cityInDiv1')
+            let textcityInDiv1 = document.createTextNode(`${response.data.location.name},`)
+            cityInDiv1.appendChild(textcityInDiv1)
+            let countryInDiv1 = document.createElement('p')
+            countryInDiv1.setAttribute('class', 'countryInDiv1')
+            let textcountryInDiv1 = document.createTextNode(`${response.data.location.country}`)
+            countryInDiv1.appendChild(textcountryInDiv1)
+
+            let cityCountryInDiv1 = document.createElement('div')
+            cityCountryInDiv1.setAttribute('class', 'cityCountryInDiv1')
+            cityCountryInDiv1.appendChild(cityInDiv1)
+            cityCountryInDiv1.appendChild(countryInDiv1)
+
+            let minTempInDiv1 = document.createElement('p')
+            minTempInDiv1.setAttribute('class', 'minTempInDiv1')
+            let textminTempInDiv1 = document.createTextNode(`mintemp :${response.data.forecast.forecastday[0].day.mintemp_c}C`)
+            minTempInDiv1.appendChild(textminTempInDiv1)
+            let maxTempInDiv1 = document.createElement('p')
+            maxTempInDiv1.setAttribute('class', 'maxTempInDiv1')
+            let textmaxTempInDiv1 = document.createTextNode(`maxtemp :${response.data.forecast.forecastday[0].day.maxtemp_c}C`)
+            maxTempInDiv1.appendChild(textmaxTempInDiv1)
+            let precepitaionInDiv1 = document.createElement('p')
+            precepitaionInDiv1.setAttribute('class', 'precepitaionInDiv1')
+            let textprecepitaionInDiv1 = document.createTextNode(`precepitaion :${response.data.current.precip_mm}mm`)
+            precepitaionInDiv1.appendChild(textprecepitaionInDiv1)
+
+            let imgInDiv1 = document.createElement('img')
+            imgInDiv1.setAttribute('src', `https:${response.data.current.condition.icon}`)
+            let weatherNameInDiv1 = document.createElement('p')
+            weatherNameInDiv1.setAttribute('class', 'weatherNameInDiv1')
+            let textweatherNameInDiv1 = document.createTextNode(`${response.data.current.condition.text}`)
+            weatherNameInDiv1.appendChild(textweatherNameInDiv1)
+            let humdityInDiv1 = document.createElement('p')
+            humdityInDiv1.setAttribute('class', 'humdityInDiv1')
+            let texthumdityInDiv1 = document.createTextNode(`humdity :${response.data.current.humidity}%`)
+            humdityInDiv1.appendChild(texthumdityInDiv1)
+            let windInDiv1 = document.createElement('p')
+            windInDiv1.setAttribute('class', 'windInDiv1')
+            let textwindInDiv1 = document.createTextNode(`wind :${response.data.current.wind_mph}mph`)
+            windInDiv1.appendChild(textwindInDiv1)
+            let visiblityInDiv1 = document.createElement('p')
+            visiblityInDiv1.setAttribute('class', 'visiblityInDiv1')
+            let textvisiblityInDiv1 = document.createTextNode(`visiblity :${response.data.current.vis_miles}mi`)
+            visiblityInDiv1.appendChild(textvisiblityInDiv1)
+
+            newELemDiv1.appendChild(temp_cInDiv1)
+            newELemDiv1.appendChild(temp_fInDiv1)
+            newELemDiv1.appendChild(cityCountryInDiv1)
+            newELemDiv1.appendChild(minTempInDiv1)
+            newELemDiv1.appendChild(maxTempInDiv1)
+            newELemDiv1.appendChild(precepitaionInDiv1)
+
+            newELemDiv2.appendChild(imgInDiv1)
+            newELemDiv2.appendChild(weatherNameInDiv1)
+            newELemDiv2.appendChild(humdityInDiv1)
+            newELemDiv2.appendChild(windInDiv1)
+            newELemDiv2.appendChild(visiblityInDiv1)
+
+            newELem.appendChild(newELemDiv1)
+            newELem.appendChild(newELemDiv2)
+
+            mainDiv.appendChild(newELem)
+
+            let newELem1 = document.createElement('slide');
+            newELem1.setAttribute('id', 'slider');
+            for (let i = 0; i < 24; i++) {
+                let foreCastDiv = document.createElement('div');
+                foreCastDiv.setAttribute('class', 'forHour');
+                let timeForCast = document.createElement('h2');
+                timeForCast.setAttribute('class', 'h2Slider')
+                let texttimeForCast = document.createTextNode(`${response.data.forecast.forecastday[0].hour[i].time}`);
+                texttimeForCast = texttimeForCast.splitText(11, 0);
+                let tempForCast = document.createElement('h3');
+                tempForCast.setAttribute('class', 'h3Slider')
+                let texttempForCast = document.createTextNode(`${response.data.forecast.forecastday[0].hour[i].temp_c} C`);
+                let imgForCast = document.createElement('img');
+                imgForCast.setAttribute('class', 'imgSlider')
+                imgForCast.setAttribute('src', `https:${response.data.forecast.forecastday[0].hour[i].condition.icon}`);
+                let nameForCast = document.createElement('p');
+                nameForCast.setAttribute('class', 'pSlider')
+                let textnameForCast = document.createTextNode(`${response.data.forecast.forecastday[0].hour[i].condition.text}`);
+
+                timeForCast.appendChild(texttimeForCast);
+                tempForCast.appendChild(texttempForCast);
+                nameForCast.appendChild(textnameForCast);
+
+                foreCastDiv.appendChild(timeForCast);
+                foreCastDiv.appendChild(tempForCast);
+                foreCastDiv.appendChild(imgForCast);
+                foreCastDiv.appendChild(nameForCast);
+
+                newELem1.appendChild(foreCastDiv);
+            }
+            mainDiv.appendChild(newELem1);
+
+            let newELem2 = document.createElement('ul');
+            newELem2.setAttribute('id', 'list');
+
+            for (let i = 0; i < response.data.forecast.forecastday.length; i++) {
+                let foreCastlist = document.createElement('li');
+                foreCastlist.setAttribute('class', 'ForDays');
+
+                let foreCastlistDiv1 = document.createElement('div');
+                foreCastlistDiv1.setAttribute('class', 'ForDaysDiv1')
+                let foreCastlistDiv2 = document.createElement('div');
+                foreCastlistDiv2.setAttribute('class', 'ForDaysDiv2')
+                let foreCastlistDiv3 = document.createElement('div');
+                foreCastlistDiv3.setAttribute('class', 'ForDaysDiv3');
+
+                let tempInDiv1 = document.createElement('h2')
+                tempInDiv1.setAttribute('class', 'tempInDiv1');
+                let texttempInDiv1 = document.createTextNode(`${response.data.forecast.forecastday[i].day.avgtemp_c} C`)
+                tempInDiv1.appendChild(texttempInDiv1)
+                let nameInDiv1 = document.createElement('p')
+                nameInDiv1.setAttribute('class', 'nameInDiv1');
+                let textnameInDiv1 = document.createTextNode(`${response.data.forecast.forecastday[i].day.condition.text}`)
+                nameInDiv1.appendChild(textnameInDiv1)
+                let placeInDiv1 = document.createElement('p')
+                placeInDiv1.setAttribute('class', 'nameInDiv1');
+                let textplaceInDiv1 = document.createTextNode(`${response.data.location.name}`)
+                placeInDiv1.appendChild(textplaceInDiv1)
+
+                let imgInDiv2 = document.createElement('img')
+                imgInDiv2.setAttribute('src', `https:${response.data.forecast.forecastday[i].day.condition.icon}`);
+                imgInDiv2.setAttribute('class', 'imgInDiv2');
+
+                let humidityInDiv3 = document.createElement('h4')
+                humidityInDiv3.setAttribute('class', "humidityInDiv3")
+                let texthumidityInDiv3 = document.createTextNode(`humidity :${response.data.forecast.forecastday[i].day.avghumidity}%`)
+                humidityInDiv3.appendChild(texthumidityInDiv3)
+                let dateInDiv3 = document.createElement('h2')
+                dateInDiv3.setAttribute('class', 'dateInDiv3')
+                let textdateInDiv3 = document.createTextNode(`${response.data.forecast.forecastday[i].date}`)
+                dateInDiv3.appendChild(textdateInDiv3)
+
+                foreCastlistDiv1.appendChild(tempInDiv1)
+                foreCastlistDiv1.appendChild(nameInDiv1)
+                foreCastlistDiv1.appendChild(placeInDiv1)
+                foreCastlistDiv2.appendChild(imgInDiv2)
+                foreCastlistDiv3.appendChild(humidityInDiv3)
+                foreCastlistDiv3.appendChild(dateInDiv3)
+
+                foreCastlist.appendChild(foreCastlistDiv1)
+                foreCastlist.appendChild(foreCastlistDiv2)
+                foreCastlist.appendChild(foreCastlistDiv3)
+
+                newELem2.appendChild(foreCastlist);
+            }
+            mainDiv.appendChild(newELem2)
+    
+
+        });
+        nextdays = document.getElementsByClassName('ForDays');
+        // nextdays= nextdays.childNodes;
+       
+        console.log(nextdays);
+    }
+    
