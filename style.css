@@ -135,6 +135,7 @@ body {
     margin-top: 10px;
     margin: auto;
     padding: 0;
+    /* height: 100vh; */
     width: 95%;
 }
 
@@ -143,15 +144,32 @@ body {
     justify-content: space-around;
     align-items: center;
     background-color: transparent;
+    flex-direction: column;
     border-radius: 10px;
+    margin-bottom: 10px;
+    /* height: 60vh;
+    overflow-y:scroll ; */
+
     /*  */
+    
+}.mainForCastDiv{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    border-radius: 10px;
+    margin-bottom: 10px;
     background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
     backdrop-filter: blur(70px);
     -webkit-backdrop-filter: blur(30px);
     border-radius: 10px;
     border: 1px solid white;
     text-shadow: 0px 0px 20px purple;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    
 }
 
 .ForDaysDiv1 {
@@ -169,10 +187,6 @@ body {
     width: 90px;
 }
 
-.ForDays {
-    margin-bottom: 10px;
-}
-
 .ForDaysDiv3 {
     font-size: large;
     width: 35%;
@@ -180,6 +194,52 @@ body {
 
 .dateInDiv3 {
     font-size: medium;
+}
+.forNextDayHour{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 300px;
+    overflow:scroll;
+    
+}.mainForCastDiv_Hour{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 5px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid white;
+    text-shadow: 0px 0px 20px purple;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    
+}
+.newELem3{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid white;
+    /* width: 90%; */
+    padding: 0;
+}
+.forNextDayHour{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 2px solid white; */
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}.forNextDayHour>.mainForCastDiv_Hour>p{
+    width: 24%;
 }
 
 @media only screen and (max-width:800px) {
