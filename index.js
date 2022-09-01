@@ -10,7 +10,7 @@
 function getWeatherData() {
     let city = document.querySelector('#city').value;
 
-    axios.get(`https://api.weatherapi.com/v1/forecast.json?key=9262891c7892487bb23194128220109&q=${city}&days=14`)
+    axios.get(`https://api.weatherapi.com/v1/forecast.json?key=19d5d54edc4b4facbb9200032220109&q=${city}&days=14`)
         .then(function (response) {
             city.value = "";
             let mainDiv = window.document.childNodes[1].childNodes[2].childNodes[1];
