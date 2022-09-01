@@ -77,7 +77,6 @@ body {
     height: 24vh;
     width: 80px;
     padding: 15px;
-    border-radius: 10px;
     /*  */
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -94,6 +93,7 @@ body {
     display: flex;
     width: 95%;
     margin: auto;
+    margin-bottom: 10px;
     gap: 20px;
     padding: 5px;
     height: 40vh;
@@ -103,10 +103,11 @@ body {
     background-color: transparent;
 
 }
-
-::-webkit-scrollbar {
+/* #slider::-webkit-scrollbar {
     display: none;
-}
+} */
+
+
 
 .h2Slider {
     font-size: medium;
@@ -135,39 +136,28 @@ body {
     margin-top: 10px;
     margin: auto;
     padding: 0;
-    /* height: 100vh; */
     width: 95%;
 }
 
 .ForDays {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
     background-color: transparent;
     flex-direction: column;
     border-radius: 10px;
     margin-bottom: 10px;
-    /* height: 60vh;
-    overflow-y:scroll ; */
-
-    /*  */
     
 }.mainForCastDiv{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    display: flex;
-    border-radius: 10px;
     margin-bottom: 10px;
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
     backdrop-filter: blur(70px);
-    -webkit-backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(70px);
     border-radius: 10px;
     border: 1px solid white;
     text-shadow: 0px 0px 20px purple;
-    justify-content: space-around;
-    align-items: center;
     width: 100%;
     
 }
@@ -198,15 +188,30 @@ body {
 .forNextDayHour{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 300px;
-    overflow:scroll;
+    height: 280px;
+    overflow-y:scroll;
+    width: 100%;
     
-}.mainForCastDiv_Hour{
+}#slider::-webkit-scrollbar,.forNextDayHour::-webkit-scrollbar{
+    width: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid white;
+    
+}#slider::-webkit-scrollbar-thumb,.forNextDayHour::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: white;
+}#slider::-webkit-scrollbar-track,.forNextDayHour::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px white; 
+    border-radius: 10px;
+
+}
+.mainForCastDiv_Hour{
     display: flex;
     justify-content: space-around;
-    width: 100%;
     margin-bottom: 5px;
     align-items: center;
     background: rgba(255, 255, 255, 0.15);
@@ -216,9 +221,6 @@ body {
     border-radius: 10px;
     border: 1px solid white;
     text-shadow: 0px 0px 20px purple;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
     
 }
 .newELem3{
@@ -227,18 +229,9 @@ body {
     align-items: center;
     flex-direction: column;
     border: 1px solid white;
-    /* width: 90%; */
     padding: 0;
 }
-.forNextDayHour{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    /* border: 2px solid white; */
-    border-radius: 10px;
-    width: 100%;
-    margin-bottom: 10px;
-}.forNextDayHour>.mainForCastDiv_Hour>p{
+.forNextDayHour>.mainForCastDiv_Hour>p{
     width: 24%;
 }
 
